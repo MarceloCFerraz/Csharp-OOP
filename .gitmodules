@@ -1,0 +1,3 @@
+[submodule "CourseSrc"]
+	path = CourseSrc
+	url = https://github.com/balta-io/2802.git
