@@ -1,7 +1,7 @@
 namespace OOP
 {
     // 1. Classes and Objects and 2. Inheritance
-    class SuperClass : IDisposable
+    class SuperClass : IDisposable, IEquatable<SuperClass>
     {
         // 3. Encapsulation
         // public: Access isn't restricted.
@@ -52,6 +52,22 @@ namespace OOP
         public string GetPassword()
         {
             return Password;
+        }
+
+        public ChildrenClass ToChildrenClass()
+        {
+            return new ChildrenClass(Id, Name, Password);
+        }
+
+        public bool Equals(SuperClass? other)
+        {
+            return other != null && (Id == other.Id && Name == other.Name);
+            // return Id == other?.Id && Name == other?.Name; // another way of doing the same thing
+        }
+        public bool Equals(ChildrenClass? other)
+        {
+            return other != null && (Id == other.Id && Name == other.Name);
+            // return Id == other?.Id && Name == other?.Name; // another way of doing the same thing
         }
     }
 }
